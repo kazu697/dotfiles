@@ -2,4 +2,4 @@
 
 set -e
 
-ln -fns nvim ${HOME}/.config/nvim
+ln -fns "$(pwd)/nvim" "${HOME}/.config/nvim"
