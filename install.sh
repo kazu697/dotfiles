@@ -2,4 +2,4 @@
 
 set -e
 
-ln -s nvim ${HOME}/.config/nvim
+ln -fns nvim ${HOME}/.config/nvim
