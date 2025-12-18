@@ -2,8 +2,15 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   ---@type snacks.Config
   opts = {
+    -- アイコン設定
+    icons = {
+      files = {
+        enabled = true,
+      },
+    },
     bigfile = { enabled = true },
     dashboard = { enabled = true },
     explorer = {
@@ -26,13 +33,29 @@ return {
 		},
     quickfile = { enabled = true },
     scope = { enabled = true },
-    scroll = { enabled = false },
-    statuscolumn = { enabled = true },
-    words = { enabled = true },
-    styles = {
-      notification = {
-        -- wo = { wrap = true } -- Wrap notifications
-      }
+    scroll = {
+			enabled = false,
+			  animate = {
+					duration = { step = 10, total = 200 },
+					easing = "linear",
+				},
+				-- faster animation when repeating scroll after delay
+				animate_repeat = {
+					delay = 100, -- delay in ms before using the repeat animation
+					duration = { step = 5, total = 50 },
+					easing = "linear",
+				},
+				-- what buffers to animate
+				filter = function(buf)
+					return vim.g.snacks_scroll ~= false and vim.b[buf].snacks_scroll ~= false and vim.bo[buf].buftype ~= "terminal"
+				end,
+					},
+					statuscolumn = { enabled = true },
+					words = { enabled = true },
+					styles = {
+						notification = {
+							-- wo = { wrap = true } -- Wrap notifications
+						}
     }
   },
   keys = {
@@ -44,10 +67,8 @@ return {
     { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
     { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
     -- find
-    { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
     { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
-    { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
     { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
     { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
     -- git
