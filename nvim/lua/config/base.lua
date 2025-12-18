@@ -15,3 +15,8 @@ vim.diagnostic.config({
 	update_in_insert = false,
 	severity_sort = true,
 })
+
+-- splitで下に開く方法
+vim.opt.splitbelow = true;
+-- vsplitで右に開く方法
+vim.opt.splitright = true;
