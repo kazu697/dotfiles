@@ -45,7 +45,7 @@ return {
       timeout = 3000,
     },
     picker = {
-			enabled = false,
+			enabled = true,
 			source = {
 				explorer = {
 					hidden = true,
@@ -117,8 +117,10 @@ return {
     -- gh
     { "<leader>gi", function() Snacks.picker.gh_issue() end, desc = "GitHub Issues (open)" },
     { "<leader>gI", function() Snacks.picker.gh_issue({ state = "all" }) end, desc = "GitHub Issues (all)" },
-    { "<leader>gp", function() Snacks.picker.gh_pr() end, desc = "GitHub Pull Requests (open)" },
-    { "<leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end, desc = "GitHub Pull Requests (all)" },
+    { "<leader>gO", function() Snacks.picker.gh_pr() end, desc = "PRs" },
+    { "<leader>gp", function() require("plugins.snacks.gh-pr-custom").my_prs() end, desc = "My Open PRs" },
+    { "<leader>gP", function() require("plugins.snacks.gh-pr-custom").review_requested_prs() end, desc = "Review Requested PRs" },
+    { "<leader>gP", function() require("plugins.snacks.gh-pr-custom").review_requested_prs() end, desc = "Review Requested PRs" },
     -- Grep
     { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
     { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
