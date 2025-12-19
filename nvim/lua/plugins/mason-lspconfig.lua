@@ -5,6 +5,6 @@ return {
         { "mason-org/mason.nvim", opts = {} },
         "neovim/nvim-lspconfig",
     },
-		ensure_installed = {"lua_ls"},
+		ensure_installed = {"lua_ls", "gopls"},
 		automatic_enable = true,
 }
