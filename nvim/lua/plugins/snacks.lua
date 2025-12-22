@@ -34,7 +34,7 @@ return {
 		},
 		picker = {
 			enabled = true,
-			source = {
+			sources = {
 				explorer = {
 					hidden = true,
 					ignored = true,
