@@ -1,5 +1,14 @@
 vim.opt.number = true;
 vim.opt.relativenumber = true;
+
+-- 外部でファイルが変更された場合、自動的に読み込む
+vim.opt.autoread = true
+
+-- Neovim がフォーカスを得た時やバッファに入った時に変更をチェック
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  pattern = "*",
+  command = "checktime",
+})
 vim.diagnostic.config({severity_sort = true})
 
 local tabWidth = 2;
