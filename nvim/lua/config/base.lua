@@ -8,6 +8,8 @@ vim.opt.tabstop = tabWidth;
 vim.opt.softtabstop = tabWidth;
 vim.opt.shiftwidth = tabWidth;
 
+vim.o.smartindent = true;
+
 vim.diagnostic.config({
 	virtual_text = true,
 	signs = true,
@@ -20,3 +22,5 @@ vim.diagnostic.config({
 vim.opt.splitbelow = true;
 -- vsplitで右に開く方法
 vim.opt.splitright = true;
+
+vim.keymap.set("n", "P", "o<Esc>p", { noremap = true, silent = true });
