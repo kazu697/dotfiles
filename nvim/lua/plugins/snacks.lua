@@ -34,7 +34,14 @@ return {
 		},
 		picker = {
 			enabled = true,
+			-- 隠しファイルを検索結果に含める
 			sources = {
+				files = {
+					hidden = true, -- 隠しファイルを表示
+				},
+				grep = {
+					hidden = true, -- grepでも隠しファイルを検索
+				},
 				explorer = {
 					hidden = true,
 					ignored = true,
