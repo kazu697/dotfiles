@@ -6,10 +6,10 @@ vim.opt.autoread = true
 
 -- Neovim がフォーカスを得た時やバッファに入った時に変更をチェック
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
-  pattern = "*",
-  command = "checktime",
+	pattern = "*",
+	command = "checktime",
 })
-vim.diagnostic.config({severity_sort = true})
+vim.diagnostic.config({ severity_sort = true })
 
 local tabWidth = 2;
 
@@ -33,3 +33,14 @@ vim.opt.splitbelow = true;
 vim.opt.splitright = true;
 
 vim.keymap.set("n", "P", "o<Esc>p", { noremap = true, silent = true });
+
+--画面移動をctrl + hjkl に変更
+vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true });
+vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true });
+vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true });
+vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true });
+
+-- 全選択をCtrl + a に変更
+vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true });
+
+vim.keymap.set("t", "jj", "<C-\\><C-n>", { noremap = true, silent = true });
