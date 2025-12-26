@@ -1,5 +1,7 @@
 vim.opt.number = true;
 vim.opt.relativenumber = true;
+vim.opt.wrap = false;
+vim.o.cursorline = true;
 
 -- 外部でファイルが変更された場合、自動的に読み込む
 vim.opt.autoread = true
@@ -44,3 +46,6 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true });
 vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true });
 
 vim.keymap.set("t", "jj", "<C-\\><C-n>", { noremap = true, silent = true });
+
+--#INSERT MODE
+vim.keymap.set("i", "<C-d>", "<Del>", { noremap = true, silent = true });

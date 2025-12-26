@@ -1,0 +1,30 @@
+[user]
+	name = xxxx
+	email = xxxx
+[fetch]
+	prune = true
+[core]
+	mergeoptions = --no-edit
+	editor = nvim
+[pager]
+	branch = false
+[pull]
+	rebase = false
+[push]
+	autoSetupRemote = true
+	default = current
+[init]
+	defaultBranch = main
+[gtr "editor"]
+	default = cursor
+[gtr "ai"]
+	default = claude
+[alias]
+	unstage = reset HEAD --
+	s = status
+	an = add -N .
+	aa = add .
+	co = checkout
+	c = commit
+	m = merge
+	rs = reset --soft HEAD^

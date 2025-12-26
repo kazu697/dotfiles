@@ -15,10 +15,14 @@ return {
 				},
 			},
 		},
+		{
+			"saghen/blink.cmp",
+		},
 	},
 	event = { "BufReadPre", "BufNewFile" },
+	-- LSP設定は nvim/lua/config/lsp.lua と nvim/lsp/*.lua で管理
+	-- vim.lsp.config (Neovim 0.11+) を使用
 	config = function()
-		local lspconfig = require("lspconfig");
-		lspconfig.lua_ls.setup {}
+		require("config.lsp")
 	end,
 }
