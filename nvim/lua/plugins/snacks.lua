@@ -61,7 +61,7 @@ return {
 			}
 		},
 		scroll = {
-			enabled = true,
+			enabled = false,
 			animate = {
 				duration = { step = 10, total = 200 },
 				easing = "linear",
@@ -303,6 +303,7 @@ return {
 				Snacks.toggle.inlay_hints():map("<leader>uh")
 				Snacks.toggle.indent():map("<leader>ug")
 				Snacks.toggle.dim():map("<leader>uD")
+				Snacks.toggle.line_number():map("<leader>uN")
 			end,
 		})
 	end,
