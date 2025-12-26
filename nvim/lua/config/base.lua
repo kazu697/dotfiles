@@ -47,5 +47,10 @@ vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true });
 
 vim.keymap.set("t", "jj", "<C-\\><C-n>", { noremap = true, silent = true });
 
+-- 相対パスをクリップボードにコピー
+vim.keymap.set("n", "<leader>yp", function()
+	require("config.utils").copy_relative_path()
+end, { noremap = true, silent = true, desc = "Yank relative path" })
+
 --#INSERT MODE
 vim.keymap.set("i", "<C-d>", "<Del>", { noremap = true, silent = true });
