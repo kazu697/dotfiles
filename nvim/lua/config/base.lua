@@ -52,5 +52,20 @@ vim.keymap.set("n", "<leader>yp", function()
 	require("config.utils").copy_relative_path()
 end, { noremap = true, silent = true, desc = "Yank relative path" })
 
+-- GitHub permalinkをクリップボードにコピー（ノーマルモード）
+vim.keymap.set("n", "<leader>yg", function()
+	require("config.utils").copy_github_permalink()
+end, { noremap = true, silent = true, desc = "Yank GitHub permalink" })
+
+-- GitHub permalinkをクリップボードにコピー（ビジュアルモード - 選択範囲）
+vim.keymap.set("v", "<leader>yg", function()
+	-- ビジュアルモード中に選択範囲の行番号を取得
+	local start_line = vim.fn.line("v")
+	local end_line = vim.fn.line(".")
+	-- ビジュアルモードを抜ける
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+	require("config.utils").copy_github_permalink(start_line, end_line)
+end, { noremap = true, silent = true, desc = "Yank GitHub permalink (selection)" })
+
 --#INSERT MODE
 vim.keymap.set("i", "<C-d>", "<Del>", { noremap = true, silent = true });
