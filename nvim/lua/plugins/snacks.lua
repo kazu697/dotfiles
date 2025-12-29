@@ -52,13 +52,13 @@ return {
 		scope = { enabled = true },
 		terminal = {
 			enabled = true,
-			win = {
-				position = "float",
-				border = "single",
-				width = 0.8,
-				height = 0.6,
-				winblend = 30,
-			}
+			-- win = {
+			-- 	position = "float",
+			-- 	border = "single",
+			-- 	width = 0.8,
+			-- 	height = 0.6,
+			-- 	winblend = 30,
+			-- }
 		},
 		scroll = {
 			enabled = false,
@@ -266,10 +266,6 @@ return {
 		{ "<c-_>",           function() Snacks.terminal() end,                                             desc = "which_key_ignore" },
 		{ "]]",              function() Snacks.words.jump(vim.v.count1) end,                               desc = "Next Reference",           mode = { "n", "t" } },
 		{ "[[",              function() Snacks.words.jump(-vim.v.count1) end,                              desc = "Prev Reference",           mode = { "n", "t" } },
-		-- Terminal
-		{
-			"<leader>t", function() Snacks.terminal.toggle() end, desc = "Toggle Snacks Floating Terminal"
-		}
 	},
 	init = function()
 		vim.api.nvim_create_autocmd("User", {

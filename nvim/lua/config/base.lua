@@ -1,3 +1,4 @@
+vim.opt.termguicolors = true
 vim.opt.number = true;
 vim.opt.relativenumber = true;
 vim.opt.wrap = false;
@@ -45,7 +46,7 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true });
 -- 全選択をCtrl + a に変更
 vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true });
 
-vim.keymap.set("t", "jj", "<C-\\><C-n>", { noremap = true, silent = true });
+vim.keymap.set("t", "<C-/", "<Esc><Esc><C-\\><C-n>", { noremap = true, silent = true });
 
 -- 相対パスをクリップボードにコピー
 vim.keymap.set("n", "<leader>yp", function()
