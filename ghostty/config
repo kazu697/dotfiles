@@ -1,9 +1,9 @@
 # This is the configuration file for Ghostty.
 
-# background-opacity = 0.65
+background-opacity = 0.65
 
 # Theme
-# theme = catppuccin-mocha
+theme = "Solarized Dark Higher Contrast"
 
 # Font
 font-family = Consolas 

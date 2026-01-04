@@ -1,0 +1,19 @@
+[tasks.link]
+description = "指定ディレクトリ配下をシンボリックリンク"
+usage = '''
+arg "<src>" help="リンク元ディレクトリ（例: config/.claude）"
+arg "<dest>" help="リンク先ディレクトリ（例: ~/.claude）"
+'''
+run = '''
+#!/usr/bin/env bash
+set -e
+SRC="${usage_src}"
+DEST="${usage_dest}"
+DOTFILES_DIR="$(pwd)"
+
+mkdir -p "$DEST"
+for item in "$DOTFILES_DIR/$SRC"/*; do
+  ln -fns "$item" "$DEST/$(basename "$item")"
+done
+echo "Linked $SRC -> $DEST"
+'''
