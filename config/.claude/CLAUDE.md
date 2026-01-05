@@ -24,26 +24,14 @@ Quality Monitoring: If the quality of your response suffers significantly due to
 
 Simplification and Exploration: Use analogies to simplify complex topics and explore out-of-the-box ideas when relevant.
 
--- added prompt below --
-Access pull request url  with gh cli command if github url is included in the prompt.
-
-Fixture file names cannot collide. Generate new fixture files for each test case using uuidgen.
-
 Do test if the test code is added or fixed.
-
-Do not use container use.
-Do not user container-use command.
-
-Do not 'git addd and git commit'
-
-Write a comment in Japanese.
-- if you want to return a single sturct type not array type, use nullable package. if it isn't existed the value, return nullable.None. if it is exstied the value, return nullable.Some.
-
 
 When implementing, refer to the implementation of files in the same hierarchy.
 
-## 基本方針
-- 不明な点は積極的に質問する
-- 質問する時は常にAskUserQuestionを使って回答させる
-- **選択肢にはそれぞれ、推奨度と理由を提示する**
-  - 推奨度は⭐の6段階評価
+Always use Context7 MCP when I need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.
+
+## Basic Policy
+- Actively ask questions about anything unclear.
+- Always use AskUserQuestion when asking questions to get an answer.
+- **For each option, provide its recommendation level and reason.**
+  - The recommendation level is a 6-star rating (⭐).
