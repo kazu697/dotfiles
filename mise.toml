@@ -17,3 +17,37 @@ for item in "$DOTFILES_DIR/$SRC"/*; do
 done
 echo "Linked $SRC -> $DEST"
 '''
+
+[tasks.setup]
+description = "dotfilesをホームディレクトリにシンボリックリンク"
+depends = ["setup:config", "setup:home"]
+
+[tasks."setup:config"]
+description = ".config/** -> ~/.config/**"
+run = '''
+#!/usr/bin/env bash
+set -e
+DOTFILES_DIR="$(pwd)"
+
+mkdir -p ~/.config
+for item in "$DOTFILES_DIR/.config"/*; do
+  ln -fns "$item" ~/.config/"$(basename "$item")"
+done
+echo "Linked .config/** -> ~/.config/**"
+'''
+
+[tasks."setup:home"]
+description = "home/** -> ~/**"
+run = '''
+#!/usr/bin/env bash
+set -e
+DOTFILES_DIR="$(pwd)"
+
+for item in "$DOTFILES_DIR/home"/* "$DOTFILES_DIR/home"/.*; do
+  [ -e "$item" ] || continue
+  name="$(basename "$item")"
+  [ "$name" = "." ] || [ "$name" = ".." ] && continue
+  ln -fns "$item" ~/"$name"
+done
+echo "Linked home/** -> ~/**"
+'''
