@@ -1,6 +1,6 @@
 # This is the configuration file for Ghostty.
 
-background-opacity = 0.80
+background-opacity = 1
 
 # Theme
 theme = "Solarized Dark Higher Contrast"
