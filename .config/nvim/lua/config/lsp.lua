@@ -3,6 +3,7 @@
 vim.lsp.enable({
 	"lua_ls",
 	"gopls",
+	"markdown_oxide",
 })
 
 -- LSPキーマッピング
