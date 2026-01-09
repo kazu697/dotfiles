@@ -11,9 +11,9 @@
       "Grep",
       "WebSearch"
     ],
-		"ask": [
-			"Bash(git add:*)"
-		]
+    "ask": [
+      "Bash(git add:*)"
+    ]
   },
   "hooks": {
     "Stop": [
@@ -39,8 +39,8 @@
       }
     ]
   },
-  "enabledPlugins": {
-    "example-skills@anthropic-agent-skills": true,
-    "document-skills@anthropic-agent-skills": true
+  "statusLine": {
+    "type": "command",
+    "command": "bun x ccusage statusline"
   }
 }
