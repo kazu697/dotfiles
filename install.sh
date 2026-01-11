@@ -11,4 +11,7 @@ ln -fns "${DOTFILES_DIR}/mise" "${HOME}/.config"
 
 # install mise
 curl https://mise.run | sh
-echo 'eval "$(~/.local/bin/mise activate bash)"' >> ~/.zshrc
+echo 'eval "$(~/.local/bin/mise activate bash)"' >>~/.zshrc
+
+# jj init
+jj git init --colocate
