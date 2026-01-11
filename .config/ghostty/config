@@ -6,8 +6,8 @@ background-opacity = 1
 theme = "Solarized Dark Higher Contrast"
 
 # Font
-font-family = Consolas 
-font-feature = -dlig
+font-family = Consolas
+font-feature = -calt,-liga,-dlig
 font-size = 12
 
 font-style-bold = false
@@ -50,5 +50,17 @@ clipboard-paste-protection = false
 confirm-close-surface = false
 
 # tab
-keybind = ctrl+shift+]=next_tab
-keybind = ctrl+shift+[=previous_tab
+keybind = super+shift+l=next_tab
+keybind = super+shift+h=previous_tab
+
+# keybind
+keybind = super+h=goto_split:left
+keybind = super+j=goto_split:bottom
+keybind = super+k=goto_split:top
+keybind = super+l=goto_split:right
+keybind = alt+super+h=resize_split:left,30
+keybind = alt+super+j=resize_split:down,30
+keybind = alt+super+k=resize_split:up,30
+keybind = alt+super+l=resize_split:right,30
+keybind = ctrl+shift+j=scroll_page_fractional:0.5
+keybind = ctrl+shift+k=scroll_page_fractional:-0.5
