@@ -13,6 +13,10 @@ return {
         },
         files = {
           hidden = true,
+          cwd = vim.fn.getcwd(), -- 現在のディレクトリのみ検索
+        },
+        grep = {
+          cwd = vim.fn.getcwd(), -- 現在のディレクトリのみ検索
         },
       },
     },
