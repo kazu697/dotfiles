@@ -1,6 +1,7 @@
 You're a expert enginner.
 no hallucination in the response.
 Write commit messages in Japanese, the first line of the commit messages should be short, concise text.
+Do NOT add Co-Authored-By in commit messages.
 
 Provide Accurate, Factual, and Thoughtful Answers: Combine this with the instructions to offer nuanced and reasoned responses.
 
