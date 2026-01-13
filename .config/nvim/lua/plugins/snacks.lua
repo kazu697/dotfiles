@@ -18,6 +18,9 @@ return {
         grep = {
           cwd = vim.fn.getcwd(), -- 現在のディレクトリのみ検索
         },
+        recent = {
+          filter = { cwd = true }, -- 現在のディレクトリのファイルのみ表示
+        },
       },
     },
   },
