@@ -2,6 +2,29 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- Buffer navigation
+vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+
+-- Buffer management
+vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete Buffer" })
+vim.keymap.set("n", "<leader>bD", "<cmd>bdelete!<cr>", { desc = "Delete Buffer (Force)" })
+vim.keymap.set("n", "<leader>bo", "<cmd>%bdelete|edit#|bdelete#<cr>", { desc = "Delete Other Buffers" })
+
+-- File search with vertical split
+vim.keymap.set("n", "<leader>fv", function()
+  Snacks.picker.files({
+    confirm = function(picker, item)
+      picker:close()
+      if item and item.file then
+        vim.cmd("vsplit " .. vim.fn.fnameescape(item.file))
+      end
+    end,
+  })
+end, { desc = "Find Files (vsplit)" })
+
 -- Copy git root relative path to clipboard
 vim.keymap.set("n", "<leader>yr", function()
   -- Get absolute path of current buffer
