@@ -175,6 +175,20 @@ return {
       end,
       desc = "GitHub: PR review comments to quickfix",
     },
+    {
+      "<leader>gs",
+      function()
+        Snacks.picker.git_status()
+      end,
+      desc = "Git status",
+    },
+    {
+      "<leader>gf",
+      function()
+        Snacks.picker.git_diff()
+      end,
+      desc = "Git diff (local)",
+    },
   },
   init = function()
     -- ファイル/フォルダの色設定（Gitの変更がある場合のみ色が付く）
