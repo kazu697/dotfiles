@@ -39,10 +39,61 @@ local function clear_gh_diff_cache()
   vim.notify("GitHub diff cache cleared", vim.log.levels.INFO)
 end
 
+-- PRレビューコメントをquickfixに表示
+local function load_pr_comments_to_quickfix()
+  local pr_number = get_pr_number()
+  if not pr_number then
+    vim.notify("No PR found for current branch", vim.log.levels.WARN)
+    return
+  end
+
+  -- レビューコメントを取得
+  local cmd = string.format(
+    "gh pr view %d --json reviewComments -q '.reviewComments[] | [.path, .line // .originalLine, .author.login, .body] | @tsv'",
+    pr_number
+  )
+  local output = vim.fn.system(cmd)
+
+  if vim.v.shell_error ~= 0 or output == "" then
+    vim.notify("No review comments found", vim.log.levels.INFO)
+    return
+  end
+
+  -- quickfixリストを構築
+  local qf_list = {}
+  for line in output:gmatch("[^\n]+") do
+    local path, lnum, author, body = line:match("([^\t]+)\t([^\t]*)\t([^\t]+)\t(.+)")
+    if path then
+      -- 改行を除去し、長いコメントは省略
+      body = body:gsub("\r", ""):gsub("\n", " ")
+      if #body > 100 then
+        body = body:sub(1, 100) .. "..."
+      end
+      table.insert(qf_list, {
+        filename = path,
+        lnum = tonumber(lnum) or 1,
+        text = string.format("@%s: %s", author, body),
+      })
+    end
+  end
+
+  if #qf_list == 0 then
+    vim.notify("No review comments found", vim.log.levels.INFO)
+    return
+  end
+
+  vim.fn.setqflist(qf_list)
+  vim.cmd("copen")
+  vim.notify(string.format("Loaded %d review comments", #qf_list), vim.log.levels.INFO)
+end
+
 return {
   "folke/snacks.nvim",
   opts = {
-    explorer = { enabled = true },
+    explorer = {
+      enabled = true,
+      replace_netrw = true,
+    },
     indent = { enabled = false },
     picker = {
       focus = "list", -- 結果リストにフォーカス（normalモード）
@@ -51,6 +102,8 @@ return {
           hidden = true,
           ignored = true,
           exclude = { ".git", ".jj" },
+          jump = { close = true },
+          confirm = { "edit" },
         },
         files = {
           hidden = true,
@@ -114,6 +167,13 @@ return {
         clear_gh_diff_cache()
       end,
       desc = "GitHub: Clear diff cache",
+    },
+    {
+      "<leader>gc",
+      function()
+        load_pr_comments_to_quickfix()
+      end,
+      desc = "GitHub: PR review comments to quickfix",
     },
   },
   init = function()

@@ -6,6 +6,7 @@ return {
         "typescript",
         "tsx",
         "javascript",
+        "dart",
       })
     end,
   },
