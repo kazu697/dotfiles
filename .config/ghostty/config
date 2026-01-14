@@ -32,6 +32,7 @@ macos-option-as-alt = true
 # window-padding-y = 10
 window-padding-balance = true
 maximize = true
+window-subtitle = working-directory
 
 # Shell
 shell-integration-features = no-cursor
@@ -64,3 +65,7 @@ keybind = shift+super+k=resize_split:up,30
 keybind = shift+super+l=resize_split:right,30
 keybind = ctrl+shift+j=scroll_page_fractional:0.5
 keybind = ctrl+shift+k=scroll_page_fractional:-0.5
+
+# change keybind
+keybind = ¥=text:\\
+
