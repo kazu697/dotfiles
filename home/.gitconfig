@@ -6,6 +6,7 @@
 [core]
 	mergeoptions = --no-edit
 	editor = nvim
+  pager = delta
 [pager]
 	branch = false
 [pull]
@@ -28,3 +29,13 @@
 	c = commit
 	m = merge
 	rs = reset --soft HEAD^
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
+
+[merge]
+    conflictStyle = zdiff3
