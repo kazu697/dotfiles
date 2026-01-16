@@ -25,6 +25,10 @@ return {
         GH_PAGER = "",
       },
       timeout = 10000,
+      ui = {
+        use_signcolumn = true, -- サイン列にコメントマーカー表示
+        use_signstatus = true, -- PRステータス表示
+      },
       issues = {
         order_by = {
           field = "UPDATED_AT",
@@ -35,6 +39,17 @@ return {
         order_by = {
           field = "UPDATED_AT",
           direction = "DESC",
+        },
+      },
+      mappings_disable_default = false,
+      mappings = {
+        review_diff = {
+          add_review_comment = { lhs = "<leader>ca", desc = "Add review comment" },
+          add_review_suggestion = { lhs = "<leader>cs", desc = "Add review suggestion" },
+        },
+        review_thread = {
+          add_comment = { lhs = "<leader>ca", desc = "Add comment" },
+          delete_comment = { lhs = "<leader>cd", desc = "Delete comment" },
         },
       },
     },
