@@ -40,7 +40,7 @@ style = 'bold fg:#313244 bg:#80EBDF'
 read_only_style = 'bold fg:#313244 bg:#80EBDF'
 
 [direnv]
-disabled = false
+disabled = true
 format = """
 [](fg:#89dceb)\
 [$symbol$allowed]($style)\

@@ -1,7 +1,6 @@
 {
   "env": {
-    "ENABLE_TOOL_SEARCH": "true",
-    "ENABLE_EXPERIMENTAL_MCP_CLI": "false"
+    "ENABLE_TOOL_SEARCH": "true"
   },
   "permissions": {
     "allow": [
@@ -15,7 +14,8 @@
       "Bash(gh issue create:*)",
       "Bash(gh issue edit:*)"
     ],
-    "ask": ["Bash(git add:*)"]
+    "ask": ["Bash(git add:*)"],
+    "defaultMode": "plan"
   },
   "hooks": {
     "Stop": [

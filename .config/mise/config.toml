@@ -1,5 +1,10 @@
 [tools]
+"cargo:sheldon" = "latest"
 fd = "latest"
 go = "1.24.0"
 node = "22.14.0"
 ripgrep = "latest"
+rust = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
