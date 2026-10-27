@@ -9,12 +9,17 @@ macOS向けのdotfilesリポジトリ。Neovim設定、mise（ツールバージ
 ## セットアップコマンド
 
 ```bash
-# 初期セットアップ（シンボリックリンク作成 + mise インストール）
-./install.sh
+# dotfilesのシンボリックリンクとシェル連携を適用（mise.toml の [dotfiles] / [bootstrap.*]）
+mise bootstrap
+
+# 適用前に変更内容を確認
+mise bootstrap --dry-run
 
 # Homebrew パッケージのインストール
 brew bundle --file=.Brewfile
 ```
+
+旧手順（`mise run setup` と `./install.sh`）は `mise bootstrap` への移行完了後に削除予定。
 
 ## アーキテクチャ
 

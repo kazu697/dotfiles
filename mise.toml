@@ -1,3 +1,23 @@
+# symlink-each だとファイル単位のリンクになり、アプリが生成するファイルがリポジトリに入らないため、従来どおりディレクトリ単位でリンクする
+# .config/.claude は実行時ファイルが混ざるため対象外
+[dotfiles]
+"~/.config/direnv" = { source = ".config/direnv" }
+"~/.config/ghostty" = { source = ".config/ghostty" }
+"~/.config/lazygit" = { source = ".config/lazygit" }
+"~/.config/mise" = { source = ".config/mise" }
+"~/.config/nvim" = { source = ".config/nvim" }
+"~/.config/sheldon" = { source = ".config/sheldon" }
+"~/.config/starship.toml" = { source = ".config/starship.toml" }
+"~/.config/tmux" = { source = ".config/tmux" }
+"~/.config/yazi" = { source = ".config/yazi" }
+"~/.config/zsh" = { source = ".config/zsh" }
+"~/.gitconfig" = { source = "home/.gitconfig" }
+"~/.zshenv" = { source = "home/.zshenv" }
+"~/.zshrc" = { source = "home/.zshrc" }
+
+[bootstrap.mise_shell_activate]
+zsh = true
+
 [tasks.link]
 description = "指定ディレクトリ配下をシンボリックリンク"
 usage = '''
